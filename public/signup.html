@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css" />
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDvwiq93rS7kyDL42q8EI87lqEJ5Qduaow",
+        authDomain: "hypixel-uhc-progress.firebaseapp.com",
+        databaseURL: "https://hypixel-uhc-progress.firebaseio.com",
+        projectId: "hypixel-uhc-progress",
+        storageBucket: "hypixel-uhc-progress.appspot.com",
+        messagingSenderId: "132603070684"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+
+  <body>
+    <div class="outer">
+      <div class="middle">
+        <div class="inner">
+          <center><div class="largebox" style="padding-top:10em;padding-bottom:10em;">
+            <h1>Sign Up</h1>
+            Email Address:&nbsp;&nbsp;&nbsp;<input id="email" type="text"/><br /><br />
+            New Password:&nbsp;&nbsp;&nbsp;&nbsp;<input id="pwd" type="password" /><br /><br />
+            Repeat Password:&nbsp;<input id="repeat" type="password" /><br /><br />
+            <button onclick="tryauth()" width="100%">Sign Up</button><br /><br />
+            <p class="light">Already have an account? <a href="/signin.html">Sign In</a></p>
+          </div></center>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script type="text/javascript">
+    function tryauth() {
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("pwd").value;
+      if (password != document.getElementById("repeat").value) {
+        alert("Passwords do not match!");
+      } else if (password.length < 8) {
+        alert("Password must be at least 8 characters long!");
+      } else {
+        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+          if (error.code == "auth/email-already-in-use") {
+            alert("This email is already in use!");
+          }
+        });
+        
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user && user.email == email) {
+            window.open("/home.html", "_self");
+          }
+        });
+      }
+    }
+  </script>
+</html>

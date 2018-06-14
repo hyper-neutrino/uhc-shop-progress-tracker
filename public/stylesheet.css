@@ -1,0 +1,107 @@
+body {
+  background-color: #333;
+  color: #eee;
+  font-family: monospace;
+  margin: 0px;
+}
+
+input {
+  background-color: #555;
+  border: none;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  color: #eee;
+  font-family: monospace;
+}
+
+button {
+  background-color: #666;
+  border: none;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  color: #eee;
+  font-family: monospace;
+}
+
+button:hover {
+  background-color: #777;
+}
+
+a {
+  color: #eee;
+}
+
+.largebox {
+  background-color: #444;
+}
+
+.outer {
+  display: table;
+  position: absolute;
+  height: 99%;
+  width: 99%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 33%;
+}
+
+.leftimage {
+  width: 160px;
+  height: 160px;
+}
+
+.craft {
+  height: 160px;
+}
+
+.infobox, .left, .center, .right {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
+.left, .center, .right {
+  padding: 1em;
+  margin: 0;
+}
+
+.left {
+  width: 170px;
+  height: 170px;
+  vertical-align: middle;
+}
+
+.center {
+  width: 400px;
+  height: 170px;
+  vertical-align: top;
+}
+
+.right {
+  width: 420px;
+  height: 170px;
+  vertical-align: top;
+}
+
+#container {
+  padding: 10px;
+}
+
+#info {
+  position: fixed;
+  padding-bottom: 1em;
+  width: 100%;
+  top: 0px;
+  background-color: #2a2a2a;
+}
